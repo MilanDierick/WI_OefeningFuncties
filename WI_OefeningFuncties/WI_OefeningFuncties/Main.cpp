@@ -13,8 +13,8 @@ void randomizeValues(int * a, int * b, int * c, int * d);
 int main()
 {
 	SinusFunctieSimple functie = SinusFunctieSimple();
-	functie.printFunction();
 
+	cin.get();
 	cin.get();
 	return 0;
 }

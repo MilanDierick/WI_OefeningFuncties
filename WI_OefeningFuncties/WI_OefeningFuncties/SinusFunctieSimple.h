@@ -14,12 +14,16 @@ using namespace std;
 class SinusFunctieSimple
 {
 	time_t seconds;
-	int a, b, c, d, e;
-
+	int amplitude, periode, c, d;
+	int antwoordAmplitude, antwoordPeriode, antwoordC, antwoordD;
+	bool isEnabled;
+	
 public:
 	SinusFunctieSimple();
 	void randomizeValues();
+	void getInputFromUser();
 	void printFunction();
+	void testFunction();
 };
 
 
