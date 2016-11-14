@@ -4,16 +4,22 @@
 
 SinusFunctieSimple::SinusFunctieSimple()
 {
-	isEnabled = false;
+	isCorrect = true;
 	seconds = time(&seconds);
-	srand((unsigned int)seconds);
 	randomizeValues();
+	printFunction();
 	getInputFromUser();
-	testFunction();
+	calculateFunction();
+
+	if (DEBUG)
+	{
+		testFunction();
+	}
 }
 
 void SinusFunctieSimple::randomizeValues()
 {
+	srand((unsigned int)seconds);
 	amplitude = rand() % 10;
 	periode = rand() % 10;
 	c = rand() % 10;
@@ -41,6 +47,46 @@ void SinusFunctieSimple::printFunction()
 
 	outputString = output.str();
 	cout << outputString;
+}
+
+void SinusFunctieSimple::calculateFunction()
+{
+	if (antwoordAmplitude != amplitude)
+	{
+		cout << "De amplitude is niet juist!" << endl;
+		cout << "De juiste amplitude is " << amplitude << " , maar jij geeft als antwoord " << antwoordAmplitude << "!" << endl;
+		isCorrect = false;
+	}
+
+	if (antwoordPeriode != periode)
+	{
+		cout << "De periode is niet juist!" << endl;
+		cout << "De juiste periode is " << periode << " , maar jij geeft als antwoord " << antwoordPeriode << "!" << endl;
+		isCorrect = false;
+	}
+
+	if (antwoordC != c)
+	{
+		cout << "De waarde voor c is niet juist!" << endl;
+		cout << "De juiste waarde is " << c << " , maar jij geeft als antwoord " << antwoordC << "!" << endl;
+		isCorrect = false;
+	}
+
+	if (antwoordD != d)
+	{
+		cout << "De waarde voor d is niet juist!" << endl;
+		cout << "De juiste waarde is " << d << " , maar jij geeft als antwoord " << antwoordD << "!" << endl;
+		isCorrect = false;
+	}
+
+	if (isCorrect)
+	{
+		cout << "Proficiat! Je hebt de funcie correct opgelost!" << endl;
+	}
+	else
+	{
+		cout << "Spijtig, maar je hebt de functie niet correct opgelost..." << endl;
+	}
 }
 
 void SinusFunctieSimple::testFunction()
